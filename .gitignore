@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+
+.venv/
+venv/
+
+jupyter/*
+!jupyter/transformation_example.ipynb
+
+__pycache__/
+*.pyc
+
+.env
+
+TO-DO
