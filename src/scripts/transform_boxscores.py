@@ -314,7 +314,7 @@ def main():
                 url=clickhouse_jdbc_url,
                 user=clickhouse_user,
                 password=clickhouse_password,
-                dbtable=skater_game_stats_table,
+                dbtable=goalie_game_stats_table,
                 coalesce=4
             )
             logger.info(f'✔️ Данные записаны в таблицу {goalie_game_stats_table}')
