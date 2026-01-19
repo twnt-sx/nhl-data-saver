@@ -129,7 +129,7 @@ def main():
             url=clickhouse_jdbc_url,
             user=clickhouse_user,
             password=clickhouse_password,
-            dbtable=team_rosters_table
+            dbtable=f'{team_rosters_table}_temp'
         )
 
         temp_count = ch_manager.count_column(f'{team_rosters_table}_temp')
