@@ -175,7 +175,7 @@ services:
         
         airflow connections add 'spark_default' \
           --conn-type 'spark' \
-          --conn-host 'local' \
+          --conn-host 'local[2]' \
           --conn-extra '{"spark-binary": "spark-submit", "deploy-mode": "client"}' \
           || true
         

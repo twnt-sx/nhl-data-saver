@@ -36,10 +36,8 @@ env_vars = {
 }
 
 conf = {
-    'spark.executor.instances': '1',
-    'spark.executor.memory': '2g',
-    'spark.executor.cores': '1',
-    'spark.driver.memory': '1g',
+    'spark.driver.memory': '3g',
+    "spark.sql.shuffle.partitions": "8",
     'spark.hadoop.fs.s3a.endpoint': 'http://minio:9000',
     'spark.hadoop.fs.s3a.access.key': MINIO_ROOT_USER,
     'spark.hadoop.fs.s3a.secret.key': MINIO_ROOT_PASSWORD,
