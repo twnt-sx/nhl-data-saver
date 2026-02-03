@@ -11,6 +11,7 @@ CLICKHOUSE_DB = os.getenv('CLICKHOUSE_DB')
 CURR_SEASON = 20252026
 REGULAR_SEASON_START_DATE = '2025-10-07'
 REGULAR_SEASON_END_DATE = '2026-04-17'
+VALID_GAME_TYPES = [2]
 TEAM_ABBRS = ['ANA', 'BOS', 'BUF', 'CAR', 'CBJ', 'CGY', 'CHI', 'COL',
               'DAL', 'DET', 'EDM', 'FLA', 'LAK', 'MIN', 'MTL', 'NJD',
               'NSH', 'NYI', 'NYR', 'OTT', 'PHI', 'PIT', 'SEA', 'SJS',

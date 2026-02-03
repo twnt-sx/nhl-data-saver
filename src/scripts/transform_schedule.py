@@ -10,7 +10,7 @@ from pyspark.sql.functions import (
     to_utc_timestamp
 )
 
-from config import REGULAR_SEASON_SCHEDULE_PREFIX
+from config import REGULAR_SEASON_SCHEDULE_PREFIX, VALID_GAME_TYPES
 from services.clickhouse_manager import ClickhouseManager
 from spark_utils import unidecode_udf, write_to_clickhouse
 from sql import SCHEDULE_LOCAL_DDL, SCHEDULE_DISTRIBUTED_DDL
@@ -69,7 +69,10 @@ def main():
             schedule_df
             .withColumn('game', explode(col('game_day.games')))
             .select('game', 'updated_at')
-            .where(~col('game.id').isin([row[0] for row in games_to_exclude.result_rows]))
+            .where(
+                col('game.gameType').isin(VALID_GAME_TYPES)
+                & ~col('game.id').isin([row[0] for row in games_to_exclude.result_rows])
+            )
             .cache()
         )
 
