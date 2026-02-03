@@ -22,7 +22,8 @@ from config import (
     TEAM_ABBRS,
     TEAM_META_PREFIX,
     TEAM_ROSTERS_PREFIX,
-    TELEGRAM_CONN_ID
+    TELEGRAM_CONN_ID,
+    VALID_GAME_TYPES
 )
 from services.s3_manager import S3Manager
 from utils import get_current_utc_ts, send_get_request, telegram_conn_exists
@@ -146,6 +147,7 @@ def download_regular_season_schedule(**context):
                 for day in data['gameWeek']
                 for game in day['games']
                 if game['gameState'] == 'OFF'
+                and game['gameType'] in VALID_GAME_TYPES
             )
 
             df['updated_at'] = curr_ts.isoformat()
